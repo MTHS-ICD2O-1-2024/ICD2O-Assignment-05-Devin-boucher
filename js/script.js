@@ -8,24 +8,34 @@
 
 // eslint-disable-next-line no-unused-vars
 
-function longDivide () {
-  let dividend = parseInt(document.getElementById('dividend').value)
-  const divisor = parseInt(document.getElementById('divisor').value)
-  let quotient = 0
-  let steps = ''
+'use strict'
 
-  // Loop to subtract divisor from dividend
-  while (true) {
-    if (dividend >= divisor) {
-      steps += `${dividend} - ${divisor} = ${dividend - divisor}<br>`
-      dividend -= divisor
-      quotient++
-    } else {
-      break
+// eslint-disable-next-line no-unused-vars
+function sumDivisibleBy3or5() {
+  let numberInput = document.getElementById('userNumber').value
+  let number = Number(numberInput)
+
+  let sum = 0
+  let counter = 1
+
+  while (counter <= number) {
+    let temp3 = counter
+    while (temp3 >= 3) {
+      temp3 = temp3 - 3
     }
+
+    let temp5 = counter
+    while (temp5 >= 5) {
+      temp5 = temp5 - 5
+    }
+
+    if ((temp3 === 0) || (temp5 === 0)) {
+      sum = sum + counter
+    }
+
+    counter = counter + 1
   }
 
-  document.getElementById('sum-result').innerHTML =
-    `<p><strong>Steps:</strong><br>${steps}</p>
-    <p><strong>Result:</strong> Quotient = ${quotient}, Remainder = ${dividend}</p>`
+  document.getElementById('sum-result').innerText =
+    'Sum of numbers divisible by 3 or 5 up to ' + number + ' is: ' + sum
 }
