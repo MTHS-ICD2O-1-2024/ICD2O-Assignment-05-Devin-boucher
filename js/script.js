@@ -8,9 +8,6 @@
 
 // eslint-disable-next-line no-unused-vars
 
-'use strict'
-
-// eslint-disable-next-line no-unused-vars
 function sumDivisibleBy3or5() {
   let numberInput = document.getElementById('userNumber').value
   let number = parseInt(numberInput)
